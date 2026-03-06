@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 async function isAdmin(supabase: Awaited<ReturnType<typeof createClient>>, userId: string) {
   const { data } = await supabase
     .from('profiles')
-    .select('role')
+    .select('*')
     .eq('id', userId)
     .single()
   return data?.role === 'admin'

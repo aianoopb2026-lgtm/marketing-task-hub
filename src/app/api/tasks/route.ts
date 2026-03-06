@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { createTaskSchema } from '@/lib/validators'
+import type { Database } from '@/types/database'
+
+type TaskStatus = Database['public']['Enums']['task_status']
+type TaskPriority = Database['public']['Enums']['task_priority']
 
 export async function GET(request: NextRequest) {
   const supabase = await createClient()
@@ -8,8 +12,8 @@ export async function GET(request: NextRequest) {
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   const { searchParams } = new URL(request.url)
-  const status = searchParams.get('status')
-  const priority = searchParams.get('priority')
+  const status = searchParams.get('status') as TaskStatus | null
+  const priority = searchParams.get('priority') as TaskPriority | null
   const assignee = searchParams.get('assignee')
 
   let query = supabase

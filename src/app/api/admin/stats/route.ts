@@ -9,7 +9,7 @@ export async function GET() {
   // Check admin
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role')
+    .select('*')
     .eq('id', user.id)
     .single()
 
