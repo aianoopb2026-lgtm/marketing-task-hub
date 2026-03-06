@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import type { Profile } from '@/types/database'
 
 async function isAdmin(supabase: Awaited<ReturnType<typeof createClient>>, userId: string) {
   const { data } = await supabase
@@ -7,7 +8,7 @@ async function isAdmin(supabase: Awaited<ReturnType<typeof createClient>>, userI
     .select('*')
     .eq('id', userId)
     .single()
-  return data?.role === 'admin'
+  return (data as Profile | null)?.role === 'admin'
 }
 
 export async function GET() {

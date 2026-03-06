@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import type { Profile } from '@/types/database'
 
 export async function GET() {
   const supabase = await createClient()
@@ -7,11 +8,12 @@ export async function GET() {
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   // Check admin
-  const { data: profile } = await supabase
+  const { data: profileData } = await supabase
     .from('profiles')
     .select('*')
     .eq('id', user.id)
     .single()
+  const profile = profileData as Profile | null
 
   if (profile?.role !== 'admin') {
     return NextResponse.json({ error: 'Admin access required' }, { status: 403 })

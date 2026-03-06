@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import type { Profile } from '@/types/database'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [authorized, setAuthorized] = useState(false)
@@ -18,11 +19,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         return
       }
 
-      const { data: profile } = await supabase
+      const { data } = await supabase
         .from('profiles')
         .select('*')
         .eq('id', user.id)
         .single()
+      const profile = data as Profile | null
 
       if (profile?.role !== 'admin') {
         router.push('/dashboard')
