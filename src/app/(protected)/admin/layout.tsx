@@ -42,8 +42,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="text-4xl animate-bounce mb-2">{'\u{1F6E1}\uFE0F'}</div>
-          <p className="text-sm text-gray-500">Checking admin access...</p>
+          <p className="text-sm text-neutral-500">Verifying access...</p>
         </div>
       </div>
     )

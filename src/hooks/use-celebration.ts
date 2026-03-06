@@ -10,7 +10,7 @@ export function useCelebration() {
       particleCount: 80,
       spread: 70,
       origin: { x: 0.2, y: 0.6 },
-      colors: ['#ef4444', '#f59e0b', '#8b5cf6', '#ec4899', '#06b6d4', '#10b981', '#f97316'],
+      colors: ['#4f46e5', '#6366f1', '#818cf8', '#a5b4fc', '#c7d2fe'],
     })
 
     // Second burst - right side
@@ -19,7 +19,7 @@ export function useCelebration() {
         particleCount: 80,
         spread: 70,
         origin: { x: 0.8, y: 0.6 },
-        colors: ['#ef4444', '#f59e0b', '#8b5cf6', '#ec4899', '#06b6d4', '#10b981', '#f97316'],
+        colors: ['#4f46e5', '#6366f1', '#818cf8', '#a5b4fc', '#c7d2fe'],
       })
     }, 150)
 
@@ -30,7 +30,7 @@ export function useCelebration() {
         spread: 100,
         origin: { x: 0.5, y: 0.3 },
         shapes: ['star'],
-        colors: ['#ffd700', '#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24'],
+        colors: ['#4f46e5', '#6366f1', '#818cf8', '#a5b4fc', '#c7d2fe'],
       })
     }, 300)
   }, [])

@@ -36,8 +36,8 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
-      <h2 className="text-xl font-semibold text-gray-900 mb-6">Welcome back! {'\u{1F44B}'}</h2>
+    <div className="bg-white rounded-xl border border-neutral-200/80 p-8 shadow-sm">
+      <h2 className="text-lg font-semibold text-[#09090b] mb-6 tracking-tight">Welcome back</h2>
 
       <form onSubmit={handleLogin} className="space-y-4">
         <Input
@@ -60,19 +60,19 @@ export default function LoginPage() {
         />
 
         {error && (
-          <div className="bg-red-50 text-red-700 text-sm rounded-lg p-3 border border-red-200">
-            {'\u274C'} {error}
+          <div className="bg-red-50 text-red-600 text-sm rounded-lg p-3 border border-red-200">
+            {error}
           </div>
         )}
 
         <Button type="submit" className="w-full" disabled={loading}>
-          {loading ? 'Signing in...' : 'Sign In \u{1F680}'}
+          {loading ? 'Signing in...' : 'Sign In'}
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-gray-500">
+      <p className="mt-6 text-center text-[13px] text-neutral-400">
         New to the team?{' '}
-        <Link href="/signup" className="text-indigo-600 hover:text-indigo-700 font-medium">
+        <Link href="/signup" className="text-[#09090b] hover:underline font-medium">
           Create an account
         </Link>
       </p>

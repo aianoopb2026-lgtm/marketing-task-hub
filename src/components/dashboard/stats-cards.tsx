@@ -1,6 +1,7 @@
 'use client'
 
 import { Card, CardContent } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
 import type { TaskWithProfiles } from '@/types/database'
 
 interface StatsCardsProps {
@@ -19,12 +20,12 @@ export function StatsCards({ tasks }: StatsCardsProps) {
   }).length
 
   const stats = [
-    { label: 'Total Tasks', value: total, emoji: '\u{1F4CA}', color: 'bg-indigo-50 text-indigo-700' },
-    { label: 'To Do', value: todo, emoji: '\u{1F4CB}', color: 'bg-slate-50 text-slate-700' },
-    { label: 'In Progress', value: inProgress, emoji: '\u{1F525}', color: 'bg-blue-50 text-blue-700' },
-    { label: 'Done', value: done, emoji: '\u2705', color: 'bg-green-50 text-green-700' },
-    { label: 'High Priority', value: highPriority, emoji: '\u{1F534}', color: 'bg-red-50 text-red-700' },
-    { label: 'Overdue', value: overdue, emoji: '\u{1F6A8}', color: 'bg-orange-50 text-orange-700' },
+    { label: 'Total Tasks', value: total, dotColor: 'bg-indigo-500', color: 'bg-indigo-50 text-indigo-700' },
+    { label: 'To Do', value: todo, dotColor: 'bg-neutral-500', color: 'bg-slate-50 text-slate-700' },
+    { label: 'In Progress', value: inProgress, dotColor: 'bg-blue-500', color: 'bg-blue-50 text-blue-700' },
+    { label: 'Done', value: done, dotColor: 'bg-green-500', color: 'bg-green-50 text-green-700' },
+    { label: 'High Priority', value: highPriority, dotColor: 'bg-red-500', color: 'bg-red-50 text-red-700' },
+    { label: 'Overdue', value: overdue, dotColor: 'bg-orange-500', color: 'bg-orange-50 text-orange-700' },
   ]
 
   return (
@@ -32,9 +33,11 @@ export function StatsCards({ tasks }: StatsCardsProps) {
       {stats.map((stat) => (
         <Card key={stat.label}>
           <CardContent className="text-center py-4">
-            <span className="text-2xl">{stat.emoji}</span>
-            <p className="text-2xl font-bold text-gray-900 mt-1">{stat.value}</p>
-            <p className="text-xs text-gray-500 font-medium">{stat.label}</p>
+            <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
+            <div className="flex items-center justify-center gap-1.5 mt-1">
+              <span className={cn('w-2 h-2 rounded-full', stat.dotColor)} />
+              <p className="text-xs text-neutral-500 font-medium">{stat.label}</p>
+            </div>
           </CardContent>
         </Card>
       ))}

@@ -21,7 +21,7 @@ export function TeamAvatar({ emoji, color, size = 'md', name, className }: TeamA
   return (
     <div
       className={cn(
-        'rounded-full flex items-center justify-center flex-shrink-0 ring-2 ring-white shadow-sm',
+        'rounded-full flex items-center justify-center flex-shrink-0 ring-1 ring-neutral-200',
         sizeClasses[size],
         className
       )}

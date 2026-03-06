@@ -19,13 +19,12 @@ export function UpcomingDeadlines({ tasks }: UpcomingDeadlinesProps) {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-lg font-semibold text-gray-900">{'\u23F0'} Upcoming Deadlines</h2>
+        <h2 className="text-lg font-semibold text-gray-900">Upcoming Deadlines</h2>
       </CardHeader>
       <CardContent>
         {tasksWithDueDate.length === 0 ? (
           <div className="text-center py-8 text-gray-400">
-            <div className="text-3xl mb-2">{'\u{1F3D6}\uFE0F'}</div>
-            <p className="text-sm">No upcoming deadlines!</p>
+            <p className="text-sm">No upcoming deadlines</p>
           </div>
         ) : (
           <div className="space-y-3">
@@ -64,7 +63,6 @@ export function UpcomingDeadlines({ tasks }: UpcomingDeadlinesProps) {
                     dueSoon && !overdue && 'bg-yellow-100 text-yellow-700',
                     !overdue && !dueSoon && 'bg-gray-100 text-gray-600',
                   )}>
-                    {overdue ? '\u{1F6A8} ' : dueSoon ? '\u23F0 ' : '\u{1F4C5} '}
                     {formatDate(task.due_date!)}
                   </span>
                 </div>

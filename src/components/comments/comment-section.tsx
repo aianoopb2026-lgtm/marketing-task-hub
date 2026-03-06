@@ -67,7 +67,7 @@ export function CommentSection({ taskId }: CommentSectionProps) {
   return (
     <div>
       <h3 className="font-semibold text-gray-900 mb-4">
-        {'\u{1F4AC}'} Comments ({comments.length})
+        Comments ({comments.length})
       </h3>
 
       {/* Comment list */}
@@ -104,7 +104,7 @@ export function CommentSection({ taskId }: CommentSectionProps) {
 
         {comments.length === 0 && (
           <p className="text-sm text-gray-400 text-center py-4">
-            No comments yet. Be the first! {'\u{1F4AD}'}
+            No comments yet
           </p>
         )}
       </div>
@@ -128,7 +128,7 @@ export function CommentSection({ taskId }: CommentSectionProps) {
             className="min-h-[38px] py-2"
           />
           <Button type="submit" size="sm" disabled={loading || !newComment.trim()}>
-            {'\u{1F4E8}'}
+            Send
           </Button>
         </div>
       </form>

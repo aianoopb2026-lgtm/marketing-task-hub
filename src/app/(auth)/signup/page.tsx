@@ -39,7 +39,6 @@ export default function SignupPage() {
     setSuccess(true)
     setLoading(false)
 
-    // Auto-redirect after signup if email confirmation is disabled
     setTimeout(() => {
       router.push('/dashboard')
       router.refresh()
@@ -48,10 +47,9 @@ export default function SignupPage() {
 
   if (success) {
     return (
-      <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 text-center">
-        <div className="text-5xl mb-4">{'\u{1F389}'}</div>
-        <h2 className="text-xl font-semibold text-gray-900 mb-2">Welcome to the team!</h2>
-        <p className="text-gray-500">
+      <div className="bg-white rounded-xl border border-neutral-200/80 p-8 shadow-sm text-center">
+        <h2 className="text-lg font-semibold text-[#09090b] mb-2 tracking-tight">Welcome to the team</h2>
+        <p className="text-[14px] text-neutral-400">
           Check your email for a confirmation link, or you may be redirected automatically.
         </p>
       </div>
@@ -59,8 +57,8 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
-      <h2 className="text-xl font-semibold text-gray-900 mb-6">Join the team! {'\u2728'}</h2>
+    <div className="bg-white rounded-xl border border-neutral-200/80 p-8 shadow-sm">
+      <h2 className="text-lg font-semibold text-[#09090b] mb-6 tracking-tight">Create your account</h2>
 
       <form onSubmit={handleSignup} className="space-y-4">
         <Input
@@ -92,19 +90,19 @@ export default function SignupPage() {
         />
 
         {error && (
-          <div className="bg-red-50 text-red-700 text-sm rounded-lg p-3 border border-red-200">
-            {'\u274C'} {error}
+          <div className="bg-red-50 text-red-600 text-sm rounded-lg p-3 border border-red-200">
+            {error}
           </div>
         )}
 
         <Button type="submit" className="w-full" disabled={loading}>
-          {loading ? 'Creating account...' : 'Create Account \u2728'}
+          {loading ? 'Creating account...' : 'Create Account'}
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-gray-500">
+      <p className="mt-6 text-center text-[13px] text-neutral-400">
         Already have an account?{' '}
-        <Link href="/login" className="text-indigo-600 hover:text-indigo-700 font-medium">
+        <Link href="/login" className="text-[#09090b] hover:underline font-medium">
           Sign in
         </Link>
       </p>

@@ -24,17 +24,17 @@ export function TaskFilters({
       <Select
         value={priority}
         onChange={(e) => onPriorityChange(e.target.value)}
-        placeholder={'\u{1F3AF} All Priorities'}
+        placeholder="All Priorities"
         options={TASK_PRIORITIES.map((p) => ({
           value: p,
-          label: `${PRIORITY_CONFIG[p].emoji} ${PRIORITY_CONFIG[p].label}`,
+          label: PRIORITY_CONFIG[p].label,
         }))}
         className="w-40"
       />
       <Select
         value={assignee}
         onChange={(e) => onAssigneeChange(e.target.value)}
-        placeholder={'\u{1F465} All Members'}
+        placeholder="All Members"
         options={profiles.map((p) => ({
           value: p.id,
           label: `${p.emoji} ${p.full_name}`,
@@ -49,7 +49,7 @@ export function TaskFilters({
           }}
           className="text-xs text-indigo-600 hover:text-indigo-800 font-medium"
         >
-          {'\u2715'} Clear filters
+          Clear filters
         </button>
       )}
     </div>

@@ -68,7 +68,7 @@ export function TaskForm({ open, onClose, onSubmit, task, profiles }: TaskFormPr
   }
 
   return (
-    <Dialog open={open} onClose={onClose} title={task ? '\u{270F}\uFE0F Edit Task' : '\u2728 New Task'}>
+    <Dialog open={open} onClose={onClose} title={task ? 'Edit Task' : 'New Task'}>
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input
           id="title"
@@ -96,7 +96,7 @@ export function TaskForm({ open, onClose, onSubmit, task, profiles }: TaskFormPr
             onChange={(e) => setForm({ ...form, status: e.target.value })}
             options={TASK_STATUSES.map((s) => ({
               value: s,
-              label: `${STATUS_CONFIG[s].emoji} ${STATUS_CONFIG[s].label}`,
+              label: STATUS_CONFIG[s].label,
             }))}
           />
 
@@ -107,7 +107,7 @@ export function TaskForm({ open, onClose, onSubmit, task, profiles }: TaskFormPr
             onChange={(e) => setForm({ ...form, priority: e.target.value })}
             options={TASK_PRIORITIES.map((p) => ({
               value: p,
-              label: `${PRIORITY_CONFIG[p].emoji} ${PRIORITY_CONFIG[p].label}`,
+              label: PRIORITY_CONFIG[p].label,
             }))}
           />
         </div>
@@ -139,7 +139,7 @@ export function TaskForm({ open, onClose, onSubmit, task, profiles }: TaskFormPr
             Cancel
           </Button>
           <Button type="submit" disabled={loading} className="flex-1">
-            {loading ? 'Saving...' : task ? 'Update Task' : 'Create Task \u{1F680}'}
+            {loading ? 'Saving...' : task ? 'Save Changes' : 'Create Task'}
           </Button>
         </div>
       </form>

@@ -1,13 +1,33 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
 :root {
-  --background: #f9fafb;
-  --foreground: #111827;
+  --background: #fafafa;
+  --foreground: #0a0a0a;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Premium typography */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+  font-feature-settings: "ss01" 1, "ss02" 1, "cv01" 1;
+}
+
+h1 { letter-spacing: -0.035em; }
+
+p, span, label {
+  letter-spacing: -0.011em;
 }
 
 /* Smooth scrollbar */
@@ -21,17 +41,26 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 3px;
+  background: #d4d4d4;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #a3a3a3;
+}
+
+/* Dark scrollbar for dark containers */
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: #404040;
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #525252;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -43,13 +72,6 @@ body {
 @keyframes zoomIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes bounceIn {
-  0% { opacity: 0; transform: scale(0.3); }
-  50% { transform: scale(1.05); }
-  70% { transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
 }
 
 .animate-in {
@@ -68,25 +90,10 @@ body {
   animation: zoomIn 0.2s ease-out;
 }
 
-.bounce-in {
-  animation: bounceIn 0.6s ease-out;
-}
-
-/* Celebration overlay for task completion */
-.celebration-overlay {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  pointer-events: none;
-  animation: bounceIn 0.6s ease-out;
-}
-
 /* Task card drag style */
 .task-dragging {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  transform: rotate(3deg);
+  transform: rotate(1deg);
 }
 
 /* Line clamp utilities */
@@ -95,4 +102,10 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Selection color */
+::selection {
+  background: #c7d2fe;
+  color: #1e1b4b;
 }

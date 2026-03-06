@@ -12,7 +12,7 @@ interface TeamOverviewProps {
 export function TeamOverview({ profiles, tasks }: TeamOverviewProps) {
   return (
     <div>
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">{'\u{1F465}'} The Team</h2>
+      <h2 className="text-lg font-semibold text-gray-900 mb-4">The Team</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {profiles.map((member) => {
           const memberTasks = tasks.filter((t) => t.assignee_id === member.id)
@@ -32,8 +32,8 @@ export function TeamOverview({ profiles, tasks }: TeamOverviewProps) {
                   <h3 className="font-semibold text-gray-900 text-sm truncate">{member.full_name}</h3>
                   <p className="text-xs text-gray-500 truncate">{member.title || 'Team Member'}</p>
                   {member.role === 'admin' && (
-                    <span className="inline-flex items-center text-xs font-medium text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded mt-1">
-                      {'\u{1F451}'} Admin
+                    <span className="inline-flex items-center text-xs font-medium text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded mt-1">
+                      Admin
                     </span>
                   )}
                   <div className="flex gap-3 mt-2 text-xs">

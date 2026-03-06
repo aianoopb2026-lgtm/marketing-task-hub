@@ -39,8 +39,8 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
       {...listeners}
       onClick={onClick}
       className={cn(
-        'bg-white rounded-xl border p-4 cursor-grab active:cursor-grabbing transition-all duration-200',
-        'hover:shadow-md hover:border-gray-300 group',
+        'bg-white rounded-lg border p-4 cursor-grab active:cursor-grabbing transition-all duration-200',
+        'hover:border-neutral-300 group',
         isDragging && 'opacity-50 shadow-xl rotate-2 scale-105',
         task.status === 'done' && 'opacity-75',
         overdue && 'border-red-300 bg-red-50/50',
@@ -52,11 +52,9 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
           'inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full',
           priorityConfig.bgClass, priorityConfig.textClass
         )}>
-          {priorityConfig.emoji} {priorityConfig.label}
+          <span className={cn('w-1.5 h-1.5 rounded-full', priorityConfig.dotColor)} />
+          {priorityConfig.label}
         </span>
-        {task.status === 'done' && (
-          <span className="text-sm">{'\u2705'}</span>
-        )}
       </div>
 
       {/* Title */}
@@ -99,7 +97,6 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
             dueSoon && !overdue && 'bg-yellow-100 text-yellow-700',
             !overdue && !dueSoon && 'bg-gray-100 text-gray-600',
           )}>
-            {overdue ? '\u{1F6A8} ' : dueSoon ? '\u23F0 ' : '\u{1F4C5} '}
             {formatDate(task.due_date)}
           </span>
         )}

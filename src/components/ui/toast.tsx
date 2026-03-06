@@ -40,15 +40,10 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
           <div
             key={t.id}
             className={cn(
-              'px-4 py-3 rounded-lg shadow-lg text-sm font-medium text-white animate-in slide-in-from-right fade-in duration-300 max-w-sm',
-              t.type === 'success' && 'bg-green-600',
-              t.type === 'error' && 'bg-red-600',
-              t.type === 'info' && 'bg-indigo-600'
+              'px-4 py-3 rounded-md shadow-lg text-sm font-medium text-white animate-in slide-in-from-right fade-in duration-300 max-w-sm',
+              t.type === 'error' ? 'bg-red-600' : 'bg-neutral-900'
             )}
           >
-            <span className="mr-2">
-              {t.type === 'success' ? '\u2705' : t.type === 'error' ? '\u274C' : '\u2139\uFE0F'}
-            </span>
             {t.message}
           </div>
         ))}

@@ -15,23 +15,23 @@ export const TASK_PRIORITIES = ['high', 'medium', 'low'] as const
 export type TaskPriority = (typeof TASK_PRIORITIES)[number]
 
 export const STATUS_CONFIG = {
-  todo: { label: 'To Do', emoji: '\u{1F4CB}', bgClass: 'bg-slate-50', textClass: 'text-slate-700', borderClass: 'border-slate-200', dotColor: 'bg-slate-400' },
-  in_progress: { label: 'In Progress', emoji: '\u{1F525}', bgClass: 'bg-blue-50', textClass: 'text-blue-700', borderClass: 'border-blue-200', dotColor: 'bg-blue-500' },
-  done: { label: 'Done', emoji: '\u2705', bgClass: 'bg-green-50', textClass: 'text-green-700', borderClass: 'border-green-200', dotColor: 'bg-green-500' },
+  todo: { label: 'To Do', bgClass: 'bg-neutral-50', textClass: 'text-neutral-600', borderClass: 'border-neutral-200', dotColor: 'bg-neutral-400' },
+  in_progress: { label: 'In Progress', bgClass: 'bg-blue-50', textClass: 'text-blue-700', borderClass: 'border-blue-200', dotColor: 'bg-blue-500' },
+  done: { label: 'Done', bgClass: 'bg-green-50', textClass: 'text-green-700', borderClass: 'border-green-200', dotColor: 'bg-green-500' },
 } as const
 
 export const PRIORITY_CONFIG = {
-  high: { emoji: '\u{1F534}', label: 'High', bgClass: 'bg-red-50', textClass: 'text-red-700', borderClass: 'border-red-200' },
-  medium: { emoji: '\u{1F7E1}', label: 'Medium', bgClass: 'bg-yellow-50', textClass: 'text-yellow-700', borderClass: 'border-yellow-200' },
-  low: { emoji: '\u{1F7E2}', label: 'Low', bgClass: 'bg-green-50', textClass: 'text-green-700', borderClass: 'border-green-200' },
+  high: { label: 'High', dotColor: 'bg-red-500', bgClass: 'bg-red-50', textClass: 'text-red-700', borderClass: 'border-red-200' },
+  medium: { label: 'Medium', dotColor: 'bg-amber-500', bgClass: 'bg-amber-50', textClass: 'text-amber-700', borderClass: 'border-amber-200' },
+  low: { label: 'Low', dotColor: 'bg-green-500', bgClass: 'bg-green-50', textClass: 'text-green-700', borderClass: 'border-green-200' },
 } as const
 
 export const ACTIVITY_ICONS: Record<string, string> = {
-  task_created: '\u2728',
-  task_updated: '\u{1F4DD}',
-  task_status_changed: '\u{1F504}',
-  task_reassigned: '\u{1F465}',
-  task_deleted: '\u{1F5D1}\uFE0F',
-  task_completed: '\u{1F389}',
-  comment_added: '\u{1F4AC}',
+  task_created: 'created',
+  task_updated: 'updated',
+  task_status_changed: 'moved',
+  task_reassigned: 'reassigned',
+  task_deleted: 'deleted',
+  task_completed: 'completed',
+  comment_added: 'commented',
 }

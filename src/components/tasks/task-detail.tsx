@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { TeamAvatar } from '@/components/ui/avatar'
 import { PriorityBadge } from '@/components/ui/badge'
 import { STATUS_CONFIG } from '@/lib/constants'
-import { formatDate, timeAgo, isOverdue } from '@/lib/utils'
+import { cn, formatDate, timeAgo, isOverdue } from '@/lib/utils'
 import { CommentSection } from '@/components/comments/comment-section'
 import { useIsAdmin } from '@/hooks/use-is-admin'
 import { useUser } from '@/hooks/use-user'
@@ -35,13 +35,14 @@ export function TaskDetail({ task, onClose, onEdit, onDelete, profiles }: TaskDe
         {/* Header */}
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <span className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full ${statusConfig.bgClass} ${statusConfig.textClass}`}>
-              {statusConfig.emoji} {statusConfig.label}
+            <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full ${statusConfig.bgClass} ${statusConfig.textClass}`}>
+              <span className={cn('w-1.5 h-1.5 rounded-full', statusConfig.dotColor)} />
+              {statusConfig.label}
             </span>
             <PriorityBadge priority={task.priority} />
             {overdue && (
               <span className="text-xs font-medium text-red-600 bg-red-50 px-2 py-1 rounded-full">
-                {'\u{1F6A8}'} Overdue
+                Overdue
               </span>
             )}
           </div>
@@ -50,7 +51,7 @@ export function TaskDetail({ task, onClose, onEdit, onDelete, profiles }: TaskDe
 
         {/* Description */}
         {task.description && (
-          <div className="bg-gray-50 rounded-lg p-4">
+          <div className="bg-neutral-50 rounded-lg p-4">
             <p className="text-sm text-gray-700 whitespace-pre-wrap">{task.description}</p>
           </div>
         )}
@@ -86,13 +87,13 @@ export function TaskDetail({ task, onClose, onEdit, onDelete, profiles }: TaskDe
             )}
           </div>
           <div>
-            <p className="text-gray-500 mb-1">{'\u{1F4C5}'} Due Date</p>
+            <p className="text-gray-500 mb-1">Due Date</p>
             <span className={overdue ? 'text-red-600 font-medium' : 'text-gray-900'}>
               {task.due_date ? formatDate(task.due_date) : 'No deadline'}
             </span>
           </div>
           <div>
-            <p className="text-gray-500 mb-1">{'\u{1F552}'} Created</p>
+            <p className="text-gray-500 mb-1">Created</p>
             <span className="text-gray-900">{timeAgo(task.created_at)}</span>
           </div>
         </div>
@@ -106,7 +107,7 @@ export function TaskDetail({ task, onClose, onEdit, onDelete, profiles }: TaskDe
         <div className="flex gap-3 border-t border-gray-100 pt-4">
           {canEdit && (
             <Button variant="secondary" onClick={onEdit} size="sm">
-              {'\u{270F}\uFE0F'} Edit
+              Edit
             </Button>
           )}
           {canDelete && (
@@ -123,7 +124,7 @@ export function TaskDetail({ task, onClose, onEdit, onDelete, profiles }: TaskDe
                 </div>
               ) : (
                 <Button variant="ghost" size="sm" onClick={() => setConfirmDelete(true)} className="text-red-600 hover:text-red-700 hover:bg-red-50">
-                  {'\u{1F5D1}\uFE0F'} Delete
+                  Delete
                 </Button>
               )}
             </>

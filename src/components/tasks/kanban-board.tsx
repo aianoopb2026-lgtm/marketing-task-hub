@@ -132,10 +132,10 @@ export function KanbanBoard() {
       return
     }
 
-    // Celebration when moving to done!
+    // Celebration when moving to done
     if (wasNotDone && isNowDone) {
       celebrate()
-      toast(`\u{1F389} "${task.title}" completed! Great work!`, 'success')
+      toast(`"${task.title}" marked as complete`, 'success')
     } else {
       const statusLabel = targetStatus === 'todo' ? 'To Do' : targetStatus === 'in_progress' ? 'In Progress' : 'Done'
       toast(`Task moved to ${statusLabel}`, 'info')
@@ -158,11 +158,13 @@ export function KanbanBoard() {
     })
 
     if (res.ok) {
-      toast(editTask ? 'Task updated!' : '\u2728 Task created!', 'success')
+      toast(editTask ? 'Task updated' : 'Task created', 'success')
       fetchData()
       setEditTask(null)
     } else {
-      toast('Something went wrong', 'error')
+      const err = await res.json().catch(() => ({}))
+      console.error('Task submit error:', res.status, err)
+      toast(err.error || 'Something went wrong', 'error')
     }
   }
 
@@ -170,7 +172,7 @@ export function KanbanBoard() {
   async function handleDeleteTask(taskId: string) {
     const res = await fetch(`/api/tasks/${taskId}`, { method: 'DELETE' })
     if (res.ok) {
-      toast('\u{1F5D1}\uFE0F Task deleted', 'info')
+      toast('Task deleted', 'info')
       setDetailTask(null)
       fetchData()
     } else {
@@ -183,7 +185,7 @@ export function KanbanBoard() {
       <div className="flex gap-6 overflow-x-auto pb-4">
         {TASK_STATUSES.map((s) => (
           <div key={s} className="min-w-[320px] flex-1 space-y-3">
-            <div className="h-12 bg-gray-200 rounded-t-xl animate-pulse" />
+            <div className="h-12 bg-neutral-200 rounded-t-lg animate-pulse" />
             <TaskCardSkeleton />
             <TaskCardSkeleton />
           </div>
@@ -197,13 +199,13 @@ export function KanbanBoard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">{'\u{1F4CB}'} Task Board</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Task Board</h1>
           <p className="text-sm text-gray-500 mt-1">
             {tasks.length} total tasks {'\u00B7'} Drag to update status
           </p>
         </div>
         <Button onClick={() => { setEditTask(null); setShowForm(true) }}>
-          {'\u2795'} New Task
+          New Task
         </Button>
       </div>
 
@@ -238,7 +240,7 @@ export function KanbanBoard() {
 
         <DragOverlay>
           {activeTask && (
-            <div className="bg-white rounded-xl border-2 border-indigo-400 shadow-2xl p-4 w-[320px] rotate-3 opacity-90">
+            <div className="bg-white rounded-lg border-2 border-indigo-400 shadow-lg p-4 w-[320px] rotate-1 opacity-90">
               <p className="font-medium text-sm text-gray-900">{activeTask.title}</p>
             </div>
           )}

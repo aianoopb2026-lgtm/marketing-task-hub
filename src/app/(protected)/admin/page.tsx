@@ -55,7 +55,7 @@ export default function AdminPage() {
     })
 
     if (res.ok) {
-      toast('\u2705 Role updated', 'success')
+      toast('Role updated', 'success')
       fetchData()
     } else {
       toast('Failed to update role', 'error')
@@ -78,7 +78,7 @@ export default function AdminPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">{'\u{1F6E1}\uFE0F'} Admin Panel</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Admin Panel</h1>
         <p className="text-sm text-gray-500 mt-1">Manage your team and view analytics</p>
       </div>
 
@@ -88,11 +88,11 @@ export default function AdminPage() {
           <Card>
             <CardContent className="text-center py-6">
               <p className="text-4xl font-bold text-indigo-600">{stats.totalTasks}</p>
-              <p className="text-sm text-gray-500 mt-1">{'\u{1F4CA}'} Total Tasks</p>
+              <p className="text-sm text-gray-500 mt-1">Total Tasks</p>
               <div className="flex justify-center gap-4 mt-3 text-xs">
-                <span className="text-slate-600">{'\u{1F4CB}'} {stats.byStatus.todo} todo</span>
-                <span className="text-blue-600">{'\u{1F525}'} {stats.byStatus.in_progress} active</span>
-                <span className="text-green-600">{'\u2705'} {stats.byStatus.done} done</span>
+                <span className="text-slate-600">{stats.byStatus.todo} todo</span>
+                <span className="text-blue-600">{stats.byStatus.in_progress} active</span>
+                <span className="text-green-600">{stats.byStatus.done} done</span>
               </div>
             </CardContent>
           </Card>
@@ -102,7 +102,7 @@ export default function AdminPage() {
               <p className="text-4xl font-bold text-green-600">
                 {stats.totalTasks > 0 ? Math.round((stats.byStatus.done / stats.totalTasks) * 100) : 0}%
               </p>
-              <p className="text-sm text-gray-500 mt-1">{'\u{1F3AF}'} Completion Rate</p>
+              <p className="text-sm text-gray-500 mt-1">Completion Rate</p>
               <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
                 <div
                   className="bg-green-500 rounded-full h-2 transition-all duration-500"
@@ -117,10 +117,10 @@ export default function AdminPage() {
           <Card>
             <CardContent className="text-center py-6">
               <p className="text-4xl font-bold text-red-600">{stats.byPriority.high}</p>
-              <p className="text-sm text-gray-500 mt-1">{'\u{1F534}'} High Priority</p>
+              <p className="text-sm text-gray-500 mt-1">High Priority</p>
               <div className="flex justify-center gap-4 mt-3 text-xs">
-                <span className="text-yellow-600">{'\u{1F7E1}'} {stats.byPriority.medium} medium</span>
-                <span className="text-green-600">{'\u{1F7E2}'} {stats.byPriority.low} low</span>
+                <span className="text-yellow-600">{stats.byPriority.medium} medium</span>
+                <span className="text-green-600">{stats.byPriority.low} low</span>
               </div>
             </CardContent>
           </Card>
@@ -131,7 +131,7 @@ export default function AdminPage() {
       {stats && (
         <Card>
           <CardHeader>
-            <h2 className="text-lg font-semibold text-gray-900">{'\u{1F4C8}'} Team Performance</h2>
+            <h2 className="text-lg font-semibold text-gray-900">Team Performance</h2>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -178,7 +178,7 @@ export default function AdminPage() {
       {/* Team Management */}
       <Card>
         <CardHeader>
-          <h2 className="text-lg font-semibold text-gray-900">{'\u{1F465}'} Team Management</h2>
+          <h2 className="text-lg font-semibold text-gray-900">Team Management</h2>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
@@ -213,11 +213,11 @@ export default function AdminPage() {
                         onChange={(e) => updateRole(member.id, e.target.value)}
                         options={[
                           { value: 'member', label: 'Member' },
-                          { value: 'admin', label: '\u{1F451} Admin' },
+                          { value: 'admin', label: 'Admin' },
                         ]}
                         className={cn(
                           'w-32 text-xs',
-                          member.role === 'admin' && 'border-amber-300 bg-amber-50'
+                          member.role === 'admin' && 'border-indigo-300 bg-indigo-50'
                         )}
                       />
                     </td>

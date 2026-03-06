@@ -5,7 +5,6 @@ import { createClient } from '@/lib/supabase/client'
 import { useRealtime } from '@/hooks/use-realtime'
 import { TeamAvatar } from '@/components/ui/avatar'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { ACTIVITY_ICONS } from '@/lib/constants'
 import { timeAgo } from '@/lib/utils'
 import type { ActivityLog, Profile } from '@/types/database'
 
@@ -42,7 +41,7 @@ export function ActivityFeed() {
       case 'task_created':
         return <>created <strong>{taskTitle}</strong></>
       case 'task_completed':
-        return <>completed <strong>{taskTitle}</strong> {'\u{1F389}'}</>
+        return <>completed <strong>{taskTitle}</strong></>
       case 'task_status_changed':
         return <>moved <strong>{taskTitle}</strong> to <strong>{details?.new?.replace('_', ' ')}</strong></>
       case 'task_reassigned':
@@ -59,7 +58,7 @@ export function ActivityFeed() {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-lg font-semibold text-gray-900">{'\u{1F4E1}'} Activity Feed</h2>
+        <h2 className="text-lg font-semibold text-gray-900">Activity Feed</h2>
       </CardHeader>
       <CardContent>
         {loading ? (
@@ -76,8 +75,7 @@ export function ActivityFeed() {
           </div>
         ) : activities.length === 0 ? (
           <div className="text-center py-8 text-gray-400">
-            <div className="text-3xl mb-2">{'\u{1F4AD}'}</div>
-            <p className="text-sm">No activity yet. Create your first task!</p>
+            <p className="text-sm">No activity yet</p>
           </div>
         ) : (
           <div className="space-y-4 max-h-[400px] overflow-y-auto">
@@ -91,7 +89,6 @@ export function ActivityFeed() {
                 />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm text-gray-700">
-                    <span className="mr-1">{ACTIVITY_ICONS[activity.action] || '\u{1F4CC}'}</span>
                     <strong className="text-gray-900">{activity.profile.full_name}</strong>{' '}
                     {getActivityText(activity)}
                   </p>

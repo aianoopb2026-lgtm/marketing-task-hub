@@ -12,14 +12,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]',
-          variant === 'primary' && 'bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500 shadow-sm',
-          variant === 'secondary' && 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-indigo-500',
-          variant === 'ghost' && 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:ring-gray-500',
-          variant === 'danger' && 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-          size === 'sm' && 'text-sm px-3 py-1.5',
-          size === 'md' && 'text-sm px-4 py-2',
-          size === 'lg' && 'text-base px-6 py-3',
+          'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed tracking-[-0.01em]',
+          variant === 'primary' && 'bg-[#09090b] text-white hover:bg-[#18181b] focus-visible:ring-neutral-600 shadow-sm',
+          variant === 'secondary' && 'bg-white text-neutral-700 border border-neutral-200 hover:bg-neutral-50 focus-visible:ring-neutral-400 shadow-sm',
+          variant === 'ghost' && 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 focus-visible:ring-neutral-400',
+          variant === 'danger' && 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500 shadow-sm',
+          size === 'sm' && 'text-[13px] px-3 py-1.5',
+          size === 'md' && 'text-[13px] px-4 py-2.5',
+          size === 'lg' && 'text-[14px] px-6 py-3',
           className
         )}
         disabled={disabled}

@@ -13,8 +13,8 @@ export function Badge({ children, variant = 'default', className }: BadgeProps) 
     <span
       className={cn(
         'inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium',
-        variant === 'default' && 'bg-gray-100 text-gray-700',
-        variant === 'outline' && 'border border-gray-200 text-gray-600',
+        variant === 'default' && 'bg-neutral-100 text-neutral-700',
+        variant === 'outline' && 'border border-neutral-200 text-neutral-600',
         className
       )}
     >
@@ -27,7 +27,8 @@ export function PriorityBadge({ priority }: { priority: TaskPriority }) {
   const config = PRIORITY_CONFIG[priority]
   return (
     <Badge className={cn(config.bgClass, config.textClass, config.borderClass, 'border')}>
-      {config.emoji} {config.label}
+      <span className={cn('w-1.5 h-1.5 rounded-full', config.dotColor)} />
+      {config.label}
     </Badge>
   )
 }

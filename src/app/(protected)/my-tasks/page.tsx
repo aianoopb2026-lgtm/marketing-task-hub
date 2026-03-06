@@ -58,7 +58,7 @@ export default function MyTasksPage() {
 
     if (newStatus === 'done' && oldStatus !== 'done') {
       celebrate()
-      toast(`\u{1F389} "${task?.title}" completed!`, 'success')
+      toast(`"${task?.title}" completed!`, 'success')
     }
   }
 
@@ -92,8 +92,7 @@ export default function MyTasksPage() {
         {activeTasks.length === 0 && (
           <Card>
             <CardContent className="text-center py-8">
-              <div className="text-4xl mb-2">{'\u{1F3D6}\uFE0F'}</div>
-              <p className="text-gray-500">No active tasks! Time to relax... or pick up something new!</p>
+              <p className="text-gray-500">All caught up -- no active tasks</p>
             </CardContent>
           </Card>
         )}
@@ -129,12 +128,12 @@ export default function MyTasksPage() {
                   </div>
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className={cn('text-xs px-2 py-0.5 rounded-full', statusConfig.bgClass, statusConfig.textClass)}>
-                      {statusConfig.emoji} {statusConfig.label}
+                      {statusConfig.label}
                     </span>
                     <PriorityBadge priority={task.priority} />
                     {task.due_date && (
                       <span className={cn('text-xs', overdue ? 'text-red-600 font-medium' : 'text-gray-500')}>
-                        {overdue ? '\u{1F6A8} ' : '\u{1F4C5} '}{formatDate(task.due_date)}
+                        {formatDate(task.due_date)}
                       </span>
                     )}
                   </div>
@@ -157,11 +156,11 @@ export default function MyTasksPage() {
       {/* Completed */}
       {completedTasks.length > 0 && (
         <div>
-          <h2 className="text-lg font-semibold text-gray-700 mb-3">{'\u2705'} Completed ({completedTasks.length})</h2>
+          <h2 className="text-lg font-semibold text-gray-700 mb-3">Completed ({completedTasks.length})</h2>
           <div className="space-y-2">
             {completedTasks.slice(0, 10).map((task) => (
               <div key={task.id} className="flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-lg">
-                <span className="text-green-500">{'\u2705'}</span>
+                <span className="w-2 h-2 rounded-full bg-green-500 flex-shrink-0" />
                 <span className="text-sm text-gray-500 line-through truncate">{task.title}</span>
               </div>
             ))}
