@@ -37,10 +37,27 @@ export async function PATCH(request: NextRequest) {
   }
 
   const body = await request.json()
-  const { userId, ...updates } = body
+  const { userId, ...rawUpdates } = body
 
   if (!userId) {
     return NextResponse.json({ error: 'userId is required' }, { status: 400 })
+  }
+
+  // Whitelist allowed fields
+  const allowedFields = ['role', 'status']
+  const updates: Record<string, string> = {}
+  for (const key of allowedFields) {
+    if (key in rawUpdates) {
+      updates[key] = rawUpdates[key]
+    }
+  }
+
+  if (updates.status && !['pending', 'approved', 'rejected'].includes(updates.status)) {
+    return NextResponse.json({ error: 'Invalid status value' }, { status: 400 })
+  }
+
+  if (updates.role && !['member', 'admin'].includes(updates.role)) {
+    return NextResponse.json({ error: 'Invalid role value' }, { status: 400 })
   }
 
   const { data, error } = await supabase

@@ -40,7 +40,7 @@ export default function SignupPage() {
     setLoading(false)
 
     setTimeout(() => {
-      router.push('/dashboard')
+      router.push('/pending-approval')
       router.refresh()
     }, 1500)
   }
@@ -48,9 +48,9 @@ export default function SignupPage() {
   if (success) {
     return (
       <div className="bg-white rounded-xl border border-neutral-200/80 p-8 shadow-sm text-center">
-        <h2 className="text-lg font-semibold text-[#09090b] mb-2 tracking-tight">Welcome to the team</h2>
+        <h2 className="text-lg font-semibold text-[#09090b] mb-2 tracking-tight">Account created</h2>
         <p className="text-[14px] text-neutral-400">
-          Check your email for a confirmation link, or you may be redirected automatically.
+          Your account is pending admin approval. You&apos;ll be redirected shortly.
         </p>
       </div>
     )

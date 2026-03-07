@@ -62,6 +62,23 @@ export default function AdminPage() {
     }
   }
 
+  async function updateStatus(userId: string, status: 'approved' | 'rejected') {
+    const res = await fetch('/api/admin/users', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, status }),
+    })
+
+    if (res.ok) {
+      toast(`User ${status}`, 'success')
+      fetchData()
+    } else {
+      toast(`Failed to update user`, 'error')
+    }
+  }
+
+  const pendingUsers = profiles.filter(p => p.status === 'pending')
+
   if (loading) {
     return (
       <div className="space-y-6">
@@ -81,6 +98,43 @@ export default function AdminPage() {
         <h1 className="text-2xl font-bold text-gray-900">Admin Panel</h1>
         <p className="text-sm text-gray-500 mt-1">Manage your team and view analytics</p>
       </div>
+
+      {/* Pending Approvals */}
+      {pendingUsers.length > 0 && (
+        <Card>
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-gray-900">Pending Approvals</h2>
+              <span className="inline-flex items-center rounded-md bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 border border-amber-200">
+                {pendingUsers.length} pending
+              </span>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              {pendingUsers.map((user) => (
+                <div key={user.id} className="flex items-center justify-between p-3 rounded-lg bg-amber-50/50 border border-amber-100">
+                  <div className="flex items-center gap-3">
+                    <TeamAvatar emoji={user.emoji} color={user.avatar_color} size="sm" />
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">{user.full_name}</p>
+                      <p className="text-xs text-gray-500">{user.email}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button size="sm" variant="primary" onClick={() => updateStatus(user.id, 'approved')}>
+                      Approve
+                    </Button>
+                    <Button size="sm" variant="secondary" onClick={() => updateStatus(user.id, 'rejected')}>
+                      Reject
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Overview Stats */}
       {stats && (
@@ -189,7 +243,7 @@ export default function AdminPage() {
                   <th className="text-left py-3 px-2 font-medium text-gray-500">Title</th>
                   <th className="text-left py-3 px-2 font-medium text-gray-500">Email</th>
                   <th className="text-left py-3 px-2 font-medium text-gray-500">Role</th>
-                  <th className="text-left py-3 px-2 font-medium text-gray-500">Emoji</th>
+                  <th className="text-left py-3 px-2 font-medium text-gray-500">Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -222,7 +276,14 @@ export default function AdminPage() {
                       />
                     </td>
                     <td className="py-3 px-2">
-                      <span className="text-2xl">{member.emoji}</span>
+                      <span className={cn(
+                        'inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium border',
+                        member.status === 'approved' && 'bg-green-50 text-green-700 border-green-200',
+                        member.status === 'pending' && 'bg-amber-50 text-amber-700 border-amber-200',
+                        member.status === 'rejected' && 'bg-red-50 text-red-700 border-red-200',
+                      )}>
+                        {member.status}
+                      </span>
                     </td>
                   </tr>
                 ))}

@@ -18,6 +18,7 @@ export type Database = {
           emoji: string
           avatar_color: string
           role: 'member' | 'admin'
+          status: 'pending' | 'approved' | 'rejected'
           created_at: string
           updated_at: string
         }
@@ -29,6 +30,7 @@ export type Database = {
           emoji?: string
           avatar_color?: string
           role?: 'member' | 'admin'
+          status?: 'pending' | 'approved' | 'rejected'
           created_at?: string
           updated_at?: string
         }
@@ -40,6 +42,7 @@ export type Database = {
           emoji?: string
           avatar_color?: string
           role?: 'member' | 'admin'
+          status?: 'pending' | 'approved' | 'rejected'
           created_at?: string
           updated_at?: string
         }
@@ -191,11 +194,16 @@ export type Database = {
         Args: Record<string, never>
         Returns: boolean
       }
+      is_approved: {
+        Args: Record<string, never>
+        Returns: boolean
+      }
     }
     Enums: {
       task_status: 'todo' | 'in_progress' | 'done'
       task_priority: 'high' | 'medium' | 'low'
       user_role: 'member' | 'admin'
+      user_status: 'pending' | 'approved' | 'rejected'
     }
     CompositeTypes: {
       [_ in never]: never

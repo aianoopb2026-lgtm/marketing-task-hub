@@ -32,15 +32,32 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  if (
-    !user &&
-    !request.nextUrl.pathname.startsWith('/login') &&
-    !request.nextUrl.pathname.startsWith('/signup') &&
-    !request.nextUrl.pathname.startsWith('/auth')
-  ) {
+  const isPublicPath =
+    request.nextUrl.pathname.startsWith('/login') ||
+    request.nextUrl.pathname.startsWith('/signup') ||
+    request.nextUrl.pathname.startsWith('/auth')
+
+  const isPendingPath = request.nextUrl.pathname.startsWith('/pending-approval')
+
+  if (!user && !isPublicPath) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.redirect(url)
+  }
+
+  // Check approval status for authenticated users accessing protected routes
+  if (user && !isPublicPath && !isPendingPath) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('status')
+      .eq('id', user.id)
+      .single()
+
+    if (profile && profile.status !== 'approved') {
+      const url = request.nextUrl.clone()
+      url.pathname = '/pending-approval'
+      return NextResponse.redirect(url)
+    }
   }
 
   return supabaseResponse
