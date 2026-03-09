@@ -185,7 +185,7 @@ export function KanbanBoard() {
       <div className="flex gap-6 overflow-x-auto pb-4">
         {TASK_STATUSES.map((s) => (
           <div key={s} className="min-w-[320px] flex-1 space-y-3">
-            <div className="h-12 bg-neutral-200 rounded-t-lg animate-pulse" />
+            <div className="h-12 bg-[#E8E0D8] rounded-t-2xl animate-pulse" />
             <TaskCardSkeleton />
             <TaskCardSkeleton />
           </div>
@@ -199,8 +199,8 @@ export function KanbanBoard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Task Board</h1>
-          <p className="text-sm text-gray-500 mt-1">
+          <h1 className="text-2xl font-bold text-[#2D2A26]">Task Board</h1>
+          <p className="text-sm text-[#9C8E7C] mt-1">
             {tasks.length} total tasks {'\u00B7'} Drag to update status
           </p>
         </div>
@@ -240,8 +240,8 @@ export function KanbanBoard() {
 
         <DragOverlay>
           {activeTask && (
-            <div className="bg-white rounded-lg border-2 border-indigo-400 shadow-lg p-4 w-[320px] rotate-1 opacity-90">
-              <p className="font-medium text-sm text-gray-900">{activeTask.title}</p>
+            <div className="bg-white rounded-2xl border-2 border-[#6C3FEE] shadow-[0_8px_30px_rgba(108,63,238,0.2)] p-4 w-[320px] rotate-1 opacity-90">
+              <p className="font-medium text-sm text-[#2D2A26]">{activeTask.title}</p>
             </div>
           )}
         </DragOverlay>

@@ -21,7 +21,7 @@ export function KanbanColumn({ status, tasks, onTaskClick }: KanbanColumnProps) 
   return (
     <div className="flex flex-col min-w-[320px] max-w-[380px] flex-1">
       {/* Column header */}
-      <div className={cn('rounded-t-lg px-4 py-3 border border-b-0', config.borderClass, config.bgClass)}>
+      <div className={cn('rounded-t-2xl px-4 py-3 border border-b-0', config.borderClass, config.bgClass)}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className={cn('w-2.5 h-2.5 rounded-full', config.dotColor)} />
@@ -42,9 +42,9 @@ export function KanbanColumn({ status, tasks, onTaskClick }: KanbanColumnProps) 
       <div
         ref={setNodeRef}
         className={cn(
-          'flex-1 rounded-b-lg border p-3 space-y-3 min-h-[200px] transition-colors duration-200',
+          'flex-1 rounded-b-2xl border p-3 space-y-3 min-h-[200px] transition-colors duration-200',
           config.borderClass,
-          isOver ? 'bg-indigo-50/50 border-indigo-300' : 'bg-gray-50/50'
+          isOver ? 'bg-[#6C3FEE]/5 border-[#6C3FEE]/30' : 'bg-[#FAF9F7]/50'
         )}
       >
         <SortableContext items={tasks.map((t) => t.id)} strategy={verticalListSortingStrategy}>
@@ -54,7 +54,7 @@ export function KanbanColumn({ status, tasks, onTaskClick }: KanbanColumnProps) 
         </SortableContext>
 
         {tasks.length === 0 && (
-          <div className="flex items-center justify-center h-32 text-gray-400 text-sm">
+          <div className="flex items-center justify-center h-32 text-[#9C8E7C] text-sm">
             <div className="text-center">
               <p>No tasks</p>
               <p className="text-xs">Drag tasks here or create new ones</p>

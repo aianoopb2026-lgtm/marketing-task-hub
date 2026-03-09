@@ -82,10 +82,10 @@ export default function AdminPage() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <div className="h-8 w-48 bg-gray-200 rounded animate-pulse" />
+        <div className="h-8 w-48 bg-[#E8E0D8] rounded animate-pulse" />
         <div className="grid grid-cols-3 gap-4">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-32 bg-gray-100 rounded-xl animate-pulse" />
+            <div key={i} className="h-32 bg-[#F0EBE4] rounded-xl animate-pulse" />
           ))}
         </div>
       </div>
@@ -95,8 +95,8 @@ export default function AdminPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Admin Panel</h1>
-        <p className="text-sm text-gray-500 mt-1">Manage your team and view analytics</p>
+        <h1 className="text-2xl font-bold text-[#2D2A26]">Admin Panel</h1>
+        <p className="text-sm text-[#9C8E7C] mt-1">Manage your team and view analytics</p>
       </div>
 
       {/* Pending Approvals */}
@@ -104,7 +104,7 @@ export default function AdminPage() {
         <Card>
           <CardHeader>
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-gray-900">Pending Approvals</h2>
+              <h2 className="text-lg font-semibold text-[#2D2A26]">Pending Approvals</h2>
               <span className="inline-flex items-center rounded-md bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700 border border-amber-200">
                 {pendingUsers.length} pending
               </span>
@@ -117,8 +117,8 @@ export default function AdminPage() {
                   <div className="flex items-center gap-3">
                     <TeamAvatar emoji={user.emoji} color={user.avatar_color} size="sm" />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">{user.full_name}</p>
-                      <p className="text-xs text-gray-500">{user.email}</p>
+                      <p className="text-sm font-medium text-[#2D2A26]">{user.full_name}</p>
+                      <p className="text-xs text-[#9C8E7C]">{user.email}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -141,11 +141,11 @@ export default function AdminPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card>
             <CardContent className="text-center py-6">
-              <p className="text-4xl font-bold text-indigo-600">{stats.totalTasks}</p>
-              <p className="text-sm text-gray-500 mt-1">Total Tasks</p>
+              <p className="text-4xl font-bold text-[#6C3FEE]">{stats.totalTasks}</p>
+              <p className="text-sm text-[#9C8E7C] mt-1">Total Tasks</p>
               <div className="flex justify-center gap-4 mt-3 text-xs">
-                <span className="text-slate-600">{stats.byStatus.todo} todo</span>
-                <span className="text-blue-600">{stats.byStatus.in_progress} active</span>
+                <span className="text-[#38BDF8]">{stats.byStatus.todo} todo</span>
+                <span className="text-[#FF6B35]">{stats.byStatus.in_progress} active</span>
                 <span className="text-green-600">{stats.byStatus.done} done</span>
               </div>
             </CardContent>
@@ -156,8 +156,8 @@ export default function AdminPage() {
               <p className="text-4xl font-bold text-green-600">
                 {stats.totalTasks > 0 ? Math.round((stats.byStatus.done / stats.totalTasks) * 100) : 0}%
               </p>
-              <p className="text-sm text-gray-500 mt-1">Completion Rate</p>
-              <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
+              <p className="text-sm text-[#9C8E7C] mt-1">Completion Rate</p>
+              <div className="w-full bg-[#E8E0D8] rounded-full h-2 mt-3">
                 <div
                   className="bg-green-500 rounded-full h-2 transition-all duration-500"
                   style={{
@@ -171,7 +171,7 @@ export default function AdminPage() {
           <Card>
             <CardContent className="text-center py-6">
               <p className="text-4xl font-bold text-red-600">{stats.byPriority.high}</p>
-              <p className="text-sm text-gray-500 mt-1">High Priority</p>
+              <p className="text-sm text-[#9C8E7C] mt-1">High Priority</p>
               <div className="flex justify-center gap-4 mt-3 text-xs">
                 <span className="text-yellow-600">{stats.byPriority.medium} medium</span>
                 <span className="text-green-600">{stats.byPriority.low} low</span>
@@ -185,7 +185,7 @@ export default function AdminPage() {
       {stats && (
         <Card>
           <CardHeader>
-            <h2 className="text-lg font-semibold text-gray-900">Team Performance</h2>
+            <h2 className="text-lg font-semibold text-[#2D2A26]">Team Performance</h2>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -203,19 +203,19 @@ export default function AdminPage() {
                     />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-medium text-gray-900 truncate">{member.name}</span>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-sm font-medium text-[#2D2A26] truncate">{member.name}</span>
+                        <span className="text-xs text-[#9C8E7C]">
                           {member.completed}/{total} tasks ({completionRate}%)
                         </span>
                       </div>
-                      <div className="w-full bg-gray-100 rounded-full h-2.5">
+                      <div className="w-full bg-[#F0EBE4] rounded-full h-2.5">
                         <div className="flex h-2.5 rounded-full overflow-hidden">
                           <div
                             className="bg-green-500 transition-all duration-500"
                             style={{ width: `${total > 0 ? (member.completed / total) * 100 : 0}%` }}
                           />
                           <div
-                            className="bg-blue-400 transition-all duration-500"
+                            className="bg-[#FF6B35] transition-all duration-500"
                             style={{ width: `${total > 0 ? (member.in_progress / total) * 100 : 0}%` }}
                           />
                         </div>
@@ -232,23 +232,23 @@ export default function AdminPage() {
       {/* Team Management */}
       <Card>
         <CardHeader>
-          <h2 className="text-lg font-semibold text-gray-900">Team Management</h2>
+          <h2 className="text-lg font-semibold text-[#2D2A26]">Team Management</h2>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-3 px-2 font-medium text-gray-500">Member</th>
-                  <th className="text-left py-3 px-2 font-medium text-gray-500">Title</th>
-                  <th className="text-left py-3 px-2 font-medium text-gray-500">Email</th>
-                  <th className="text-left py-3 px-2 font-medium text-gray-500">Role</th>
-                  <th className="text-left py-3 px-2 font-medium text-gray-500">Status</th>
+                <tr className="border-b border-[#E8E0D8]">
+                  <th className="text-left py-3 px-2 font-medium text-[#9C8E7C]">Member</th>
+                  <th className="text-left py-3 px-2 font-medium text-[#9C8E7C]">Title</th>
+                  <th className="text-left py-3 px-2 font-medium text-[#9C8E7C]">Email</th>
+                  <th className="text-left py-3 px-2 font-medium text-[#9C8E7C]">Role</th>
+                  <th className="text-left py-3 px-2 font-medium text-[#9C8E7C]">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {profiles.map((member) => (
-                  <tr key={member.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                  <tr key={member.id} className="border-b border-[#E8E0D8]/60 hover:bg-[#FAF9F7] transition-colors">
                     <td className="py-3 px-2">
                       <div className="flex items-center gap-2">
                         <TeamAvatar
@@ -256,11 +256,11 @@ export default function AdminPage() {
                           color={member.avatar_color}
                           size="sm"
                         />
-                        <span className="font-medium text-gray-900">{member.full_name}</span>
+                        <span className="font-medium text-[#2D2A26]">{member.full_name}</span>
                       </div>
                     </td>
-                    <td className="py-3 px-2 text-gray-600">{member.title || '-'}</td>
-                    <td className="py-3 px-2 text-gray-600">{member.email}</td>
+                    <td className="py-3 px-2 text-[#4A4039]">{member.title || '-'}</td>
+                    <td className="py-3 px-2 text-[#4A4039]">{member.email}</td>
                     <td className="py-3 px-2">
                       <Select
                         value={member.role}
@@ -271,7 +271,7 @@ export default function AdminPage() {
                         ]}
                         className={cn(
                           'w-32 text-xs',
-                          member.role === 'admin' && 'border-indigo-300 bg-indigo-50'
+                          member.role === 'admin' && 'border-[#6C3FEE]/30 bg-[#6C3FEE]/10'
                         )}
                       />
                     </td>

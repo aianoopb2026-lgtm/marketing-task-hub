@@ -47,9 +47,9 @@ export default function SignupPage() {
 
   if (success) {
     return (
-      <div className="bg-white rounded-xl border border-neutral-200/80 p-8 shadow-sm text-center">
-        <h2 className="text-lg font-semibold text-[#09090b] mb-2 tracking-tight">Account created</h2>
-        <p className="text-[14px] text-neutral-400">
+      <div className="bg-white rounded-2xl border border-[#E8E0D8] p-8 shadow-[0_4px_20px_rgba(140,100,60,0.08)] text-center">
+        <h2 className="text-lg font-semibold text-[#2D2A26] mb-2 tracking-tight">Account created</h2>
+        <p className="text-[14px] text-[#9C8E7C]">
           Your account is pending admin approval. You&apos;ll be redirected shortly.
         </p>
       </div>
@@ -57,8 +57,8 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="bg-white rounded-xl border border-neutral-200/80 p-8 shadow-sm">
-      <h2 className="text-lg font-semibold text-[#09090b] mb-6 tracking-tight">Create your account</h2>
+    <div className="bg-white rounded-2xl border border-[#E8E0D8] p-8 shadow-[0_4px_20px_rgba(140,100,60,0.08)]">
+      <h2 className="text-lg font-semibold text-[#2D2A26] mb-6 tracking-tight">Create your account</h2>
 
       <form onSubmit={handleSignup} className="space-y-4">
         <Input
@@ -100,9 +100,9 @@ export default function SignupPage() {
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-[13px] text-neutral-400">
+      <p className="mt-6 text-center text-[13px] text-[#9C8E7C]">
         Already have an account?{' '}
-        <Link href="/login" className="text-[#09090b] hover:underline font-medium">
+        <Link href="/login" className="text-[#2D2A26] hover:underline font-medium">
           Sign in
         </Link>
       </p>

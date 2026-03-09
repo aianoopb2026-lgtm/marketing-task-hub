@@ -42,10 +42,10 @@ export default function DashboardPage() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <div className="h-8 w-64 bg-gray-200 rounded animate-pulse" />
+        <div className="h-8 w-64 bg-[#E8E0D8] rounded animate-pulse" />
         <div className="grid grid-cols-6 gap-4">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="h-24 bg-gray-100 rounded-xl animate-pulse" />
+            <div key={i} className="h-24 bg-[#F0EBE4] rounded-xl animate-pulse" />
           ))}
         </div>
       </div>
@@ -56,10 +56,10 @@ export default function DashboardPage() {
     <div className="space-y-8">
       {/* Greeting */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-[#2D2A26]">
           {greeting()}, {profile?.full_name?.split(' ')[0]} {profile?.emoji}
         </h1>
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-sm text-[#9C8E7C] mt-1">
           Here&apos;s what&apos;s happening with your marketing team today
         </p>
       </div>

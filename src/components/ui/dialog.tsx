@@ -38,19 +38,19 @@ export function Dialog({ open, onClose, children, title, className }: DialogProp
         if (e.target === overlayRef.current) onClose()
       }}
     >
-      <div className="fixed inset-0 bg-black/60 backdrop-blur-[2px] animate-in fade-in duration-200" />
+      <div className="fixed inset-0 bg-[#2D2A26]/60 backdrop-blur-[2px] animate-in fade-in duration-200" />
       <div
         className={cn(
-          'relative bg-white rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto animate-in zoom-in-95 fade-in duration-200',
+          'relative bg-white rounded-2xl shadow-[0_8px_40px_rgba(140,100,60,0.15)] w-full max-w-lg max-h-[90vh] overflow-y-auto animate-in zoom-in-95 fade-in duration-200',
           className
         )}
       >
         {title && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-200">
-            <h2 className="text-lg font-semibold text-neutral-900">{title}</h2>
+          <div className="flex items-center justify-between px-6 py-4 border-b border-[#E8E0D8]">
+            <h2 className="text-lg font-semibold text-[#2D2A26]">{title}</h2>
             <button
               onClick={onClose}
-              className="text-neutral-400 hover:text-neutral-600 transition-colors p-1 rounded-md hover:bg-neutral-100"
+              className="text-[#9C8E7C] hover:text-[#4A4039] transition-colors p-1 rounded-lg hover:bg-[#F0EBE4]"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

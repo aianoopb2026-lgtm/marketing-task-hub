@@ -39,11 +39,11 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
       {...listeners}
       onClick={onClick}
       className={cn(
-        'bg-white rounded-lg border p-4 cursor-grab active:cursor-grabbing transition-all duration-200',
-        'hover:border-neutral-300 group',
+        'bg-white rounded-2xl border border-[#E8E0D8] p-4 cursor-grab active:cursor-grabbing transition-all duration-200',
+        'hover:border-[#D5CEC6] hover:shadow-[0_4px_12px_rgba(140,100,60,0.08)] hover:-translate-y-0.5 group',
         isDragging && 'opacity-50 shadow-xl rotate-2 scale-105',
         task.status === 'done' && 'opacity-75',
-        overdue && 'border-red-300 bg-red-50/50',
+        overdue && 'border-[#E5484D]/40 bg-red-50/50',
       )}
     >
       {/* Priority badge */}
@@ -59,15 +59,15 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
 
       {/* Title */}
       <h3 className={cn(
-        'font-medium text-gray-900 text-sm mb-2 line-clamp-2',
-        task.status === 'done' && 'line-through text-gray-500'
+        'font-medium text-[#2D2A26] text-sm mb-2 line-clamp-2',
+        task.status === 'done' && 'line-through text-[#9C8E7C]'
       )}>
         {task.title}
       </h3>
 
       {/* Description preview */}
       {task.description && (
-        <p className="text-xs text-gray-500 line-clamp-2 mb-3">{task.description}</p>
+        <p className="text-xs text-[#9C8E7C] line-clamp-2 mb-3">{task.description}</p>
       )}
 
       {/* Footer */}
@@ -81,12 +81,12 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
               size="sm"
               name={task.assignee.full_name}
             />
-            <span className="text-xs text-gray-600 font-medium truncate max-w-[80px]">
+            <span className="text-xs text-[#4A4039] font-medium truncate max-w-[80px]">
               {task.assignee.full_name.split(' ')[0]}
             </span>
           </div>
         ) : (
-          <span className="text-xs text-gray-400 italic">Unassigned</span>
+          <span className="text-xs text-[#9C8E7C] italic">Unassigned</span>
         )}
 
         {/* Due date */}
@@ -95,7 +95,7 @@ export function TaskCard({ task, onClick }: TaskCardProps) {
             'text-xs font-medium px-2 py-0.5 rounded-full',
             overdue && 'bg-red-100 text-red-700',
             dueSoon && !overdue && 'bg-yellow-100 text-yellow-700',
-            !overdue && !dueSoon && 'bg-gray-100 text-gray-600',
+            !overdue && !dueSoon && 'bg-[#F0EBE4] text-[#4A4039]',
           )}>
             {formatDate(task.due_date)}
           </span>

@@ -54,15 +54,15 @@ export function Sidebar() {
   const allItems = isAdmin ? [...navItems, ...adminItems] : navItems
 
   return (
-    <aside className="hidden lg:flex lg:flex-col lg:w-[260px] bg-[#09090b] border-r border-white/[0.06] h-screen sticky top-0">
-      <div className="px-5 py-6 border-b border-white/[0.06]">
+    <aside className="hidden lg:flex lg:flex-col lg:w-[260px] bg-[#1E1B18] border-r border-[#2D2A26] h-screen sticky top-0">
+      <div className="px-5 py-6 border-b border-[#2D2A26]">
         <Link href="/dashboard" className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-[#FF6B35] rounded-xl flex items-center justify-center">
             <span className="text-white font-semibold text-sm tracking-tight">M</span>
           </div>
           <div>
             <h1 className="font-semibold text-white text-[15px] leading-tight tracking-tight">Marketing</h1>
-            <p className="text-[11px] text-neutral-500 font-medium tracking-wide uppercase">Task Hub</p>
+            <p className="text-[11px] text-[#9C8E7C] font-medium tracking-wide uppercase">Task Hub</p>
           </div>
         </Link>
       </div>
@@ -75,10 +75,10 @@ export function Sidebar() {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex items-center gap-3 px-3 py-2 rounded-md text-[13px] font-medium transition-all duration-150',
+                'flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium transition-all duration-150',
                 isActive
-                  ? 'bg-white/[0.08] text-white'
-                  : 'text-neutral-400 hover:bg-white/[0.04] hover:text-neutral-200'
+                  ? 'bg-[#FF6B35]/15 text-[#FF6B35] border-l-2 border-[#FF6B35]'
+                  : 'text-[#9C8E7C] hover:bg-[#FF6B35]/5 hover:text-[#D5CEC6]'
               )}
             >
               {item.icon}
@@ -88,10 +88,10 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="px-3 py-4 border-t border-white/[0.06]">
-        <div className="bg-white/[0.03] rounded-md px-3 py-2.5 border border-white/[0.06]">
-          <p className="text-[11px] font-medium text-neutral-500 uppercase tracking-wider">Pro tip</p>
-          <p className="text-[12px] text-neutral-500 mt-1 leading-relaxed">
+      <div className="px-3 py-4 border-t border-[#2D2A26]">
+        <div className="bg-[#2D2A26]/50 rounded-lg px-3 py-2.5 border border-[#3D3832]">
+          <p className="text-[11px] font-medium text-[#9C8E7C] uppercase tracking-wider">Pro tip</p>
+          <p className="text-[12px] text-[#9C8E7C] mt-1 leading-relaxed">
             Drag tasks between columns to update their status.
           </p>
         </div>

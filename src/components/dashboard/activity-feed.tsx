@@ -58,23 +58,23 @@ export function ActivityFeed() {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-lg font-semibold text-gray-900">Activity Feed</h2>
+        <h2 className="text-lg font-semibold text-[#2D2A26]">Activity Feed</h2>
       </CardHeader>
       <CardContent>
         {loading ? (
           <div className="space-y-3">
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="flex gap-3 animate-pulse">
-                <div className="w-8 h-8 bg-gray-200 rounded-full" />
+                <div className="w-8 h-8 bg-[#E8E0D8] rounded-full" />
                 <div className="flex-1">
-                  <div className="h-3 bg-gray-200 rounded w-3/4 mb-2" />
-                  <div className="h-2 bg-gray-200 rounded w-1/4" />
+                  <div className="h-3 bg-[#E8E0D8] rounded w-3/4 mb-2" />
+                  <div className="h-2 bg-[#E8E0D8] rounded w-1/4" />
                 </div>
               </div>
             ))}
           </div>
         ) : activities.length === 0 ? (
-          <div className="text-center py-8 text-gray-400">
+          <div className="text-center py-8 text-[#9C8E7C]">
             <p className="text-sm">No activity yet</p>
           </div>
         ) : (
@@ -88,11 +88,11 @@ export function ActivityFeed() {
                   name={activity.profile.full_name}
                 />
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm text-gray-700">
-                    <strong className="text-gray-900">{activity.profile.full_name}</strong>{' '}
+                  <p className="text-sm text-[#4A4039]">
+                    <strong className="text-[#2D2A26]">{activity.profile.full_name}</strong>{' '}
                     {getActivityText(activity)}
                   </p>
-                  <p className="text-xs text-gray-400 mt-0.5">{timeAgo(activity.created_at)}</p>
+                  <p className="text-xs text-[#9C8E7C] mt-0.5">{timeAgo(activity.created_at)}</p>
                 </div>
               </div>
             ))}

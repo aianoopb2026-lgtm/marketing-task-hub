@@ -15,15 +15,15 @@ export const TASK_PRIORITIES = ['high', 'medium', 'low'] as const
 export type TaskPriority = (typeof TASK_PRIORITIES)[number]
 
 export const STATUS_CONFIG = {
-  todo: { label: 'To Do', bgClass: 'bg-neutral-50', textClass: 'text-neutral-600', borderClass: 'border-neutral-200', dotColor: 'bg-neutral-400' },
-  in_progress: { label: 'In Progress', bgClass: 'bg-blue-50', textClass: 'text-blue-700', borderClass: 'border-blue-200', dotColor: 'bg-blue-500' },
-  done: { label: 'Done', bgClass: 'bg-green-50', textClass: 'text-green-700', borderClass: 'border-green-200', dotColor: 'bg-green-500' },
+  todo: { label: 'To Do', bgClass: 'bg-sky-50', textClass: 'text-sky-700', borderClass: 'border-sky-200', dotColor: 'bg-[#38BDF8]' },
+  in_progress: { label: 'In Progress', bgClass: 'bg-orange-50', textClass: 'text-orange-700', borderClass: 'border-orange-200', dotColor: 'bg-[#FF6B35]' },
+  done: { label: 'Done', bgClass: 'bg-emerald-50', textClass: 'text-emerald-700', borderClass: 'border-emerald-200', dotColor: 'bg-[#22C55E]' },
 } as const
 
 export const PRIORITY_CONFIG = {
-  high: { label: 'High', dotColor: 'bg-red-500', bgClass: 'bg-red-50', textClass: 'text-red-700', borderClass: 'border-red-200' },
-  medium: { label: 'Medium', dotColor: 'bg-amber-500', bgClass: 'bg-amber-50', textClass: 'text-amber-700', borderClass: 'border-amber-200' },
-  low: { label: 'Low', dotColor: 'bg-green-500', bgClass: 'bg-green-50', textClass: 'text-green-700', borderClass: 'border-green-200' },
+  high: { label: 'High', dotColor: 'bg-[#E5484D]', bgClass: 'bg-red-50', textClass: 'text-red-700', borderClass: 'border-red-200' },
+  medium: { label: 'Medium', dotColor: 'bg-[#FACC15]', bgClass: 'bg-yellow-50', textClass: 'text-yellow-700', borderClass: 'border-yellow-200' },
+  low: { label: 'Low', dotColor: 'bg-[#A3E635]', bgClass: 'bg-lime-50', textClass: 'text-lime-700', borderClass: 'border-lime-200' },
 } as const
 
 export const ACTIVITY_ICONS: Record<string, string> = {

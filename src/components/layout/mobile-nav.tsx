@@ -61,20 +61,20 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
 
   return (
     <>
-      <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={onClose} />
-      <div className="fixed left-0 top-0 bottom-0 w-64 bg-[#0a0a0a] z-50 lg:hidden shadow-xl">
-        <div className="p-6 border-b border-[#262626]">
+      <div className="fixed inset-0 bg-[#2D2A26]/50 z-40 lg:hidden" onClick={onClose} />
+      <div className="fixed left-0 top-0 bottom-0 w-64 bg-[#1E1B18] z-50 lg:hidden shadow-xl">
+        <div className="p-6 border-b border-[#2D2A26]">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#FF6B35] rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-sm">M</span>
               </div>
               <div>
                 <h1 className="font-bold text-white text-lg">Marketing</h1>
-                <p className="text-xs text-neutral-500">Task Hub</p>
+                <p className="text-xs text-[#9C8E7C]">Task Hub</p>
               </div>
             </div>
-            <button onClick={onClose} className="p-2 rounded-lg text-neutral-400 hover:bg-white/10">
+            <button onClick={onClose} className="p-2 rounded-lg text-[#9C8E7C] hover:bg-[#FF6B35]/10">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -92,8 +92,8 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 className={cn(
                   'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
                   isActive
-                    ? 'bg-white/10 text-white'
-                    : 'text-neutral-400 hover:bg-white/5 hover:text-neutral-200'
+                    ? 'bg-[#FF6B35]/15 text-[#FF6B35]'
+                    : 'text-[#9C8E7C] hover:bg-[#FF6B35]/5 hover:text-[#D5CEC6]'
                 )}
               >
                 {item.icon}

@@ -20,23 +20,23 @@ export function StatsCards({ tasks }: StatsCardsProps) {
   }).length
 
   const stats = [
-    { label: 'Total Tasks', value: total, dotColor: 'bg-indigo-500', color: 'bg-indigo-50 text-indigo-700' },
-    { label: 'To Do', value: todo, dotColor: 'bg-neutral-500', color: 'bg-slate-50 text-slate-700' },
-    { label: 'In Progress', value: inProgress, dotColor: 'bg-blue-500', color: 'bg-blue-50 text-blue-700' },
-    { label: 'Done', value: done, dotColor: 'bg-green-500', color: 'bg-green-50 text-green-700' },
-    { label: 'High Priority', value: highPriority, dotColor: 'bg-red-500', color: 'bg-red-50 text-red-700' },
-    { label: 'Overdue', value: overdue, dotColor: 'bg-orange-500', color: 'bg-orange-50 text-orange-700' },
+    { label: 'Total Tasks', value: total, dotColor: 'bg-[#6C3FEE]', accent: 'border-l-[#6C3FEE]', valueColor: 'text-[#6C3FEE]' },
+    { label: 'To Do', value: todo, dotColor: 'bg-[#38BDF8]', accent: 'border-l-[#38BDF8]', valueColor: 'text-[#38BDF8]' },
+    { label: 'In Progress', value: inProgress, dotColor: 'bg-[#FF6B35]', accent: 'border-l-[#FF6B35]', valueColor: 'text-[#FF6B35]' },
+    { label: 'Done', value: done, dotColor: 'bg-[#22C55E]', accent: 'border-l-[#22C55E]', valueColor: 'text-[#22C55E]' },
+    { label: 'High Priority', value: highPriority, dotColor: 'bg-[#E5484D]', accent: 'border-l-[#E5484D]', valueColor: 'text-[#E5484D]' },
+    { label: 'Overdue', value: overdue, dotColor: 'bg-[#FACC15]', accent: 'border-l-[#FACC15]', valueColor: 'text-[#FACC15]' },
   ]
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
       {stats.map((stat) => (
-        <Card key={stat.label}>
+        <Card key={stat.label} className={cn('border-l-4', stat.accent)}>
           <CardContent className="text-center py-4">
-            <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
+            <p className={cn('text-3xl font-bold', stat.valueColor)}>{stat.value}</p>
             <div className="flex items-center justify-center gap-1.5 mt-1">
               <span className={cn('w-2 h-2 rounded-full', stat.dotColor)} />
-              <p className="text-xs text-neutral-500 font-medium">{stat.label}</p>
+              <p className="text-xs text-[#9C8E7C] font-medium">{stat.label}</p>
             </div>
           </CardContent>
         </Card>

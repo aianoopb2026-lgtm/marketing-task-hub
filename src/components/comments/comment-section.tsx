@@ -66,7 +66,7 @@ export function CommentSection({ taskId }: CommentSectionProps) {
 
   return (
     <div>
-      <h3 className="font-semibold text-gray-900 mb-4">
+      <h3 className="font-semibold text-[#2D2A26] mb-4">
         Comments ({comments.length})
       </h3>
 
@@ -82,10 +82,10 @@ export function CommentSection({ taskId }: CommentSectionProps) {
             />
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-900">
+                <span className="text-sm font-medium text-[#2D2A26]">
                   {comment.profile.full_name}
                 </span>
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-[#9C8E7C]">
                   {timeAgo(comment.created_at)}
                 </span>
                 {profile?.id === comment.user_id && (
@@ -97,13 +97,13 @@ export function CommentSection({ taskId }: CommentSectionProps) {
                   </button>
                 )}
               </div>
-              <p className="text-sm text-gray-700 mt-0.5 whitespace-pre-wrap">{comment.content}</p>
+              <p className="text-sm text-[#4A4039] mt-0.5 whitespace-pre-wrap">{comment.content}</p>
             </div>
           </div>
         ))}
 
         {comments.length === 0 && (
-          <p className="text-sm text-gray-400 text-center py-4">
+          <p className="text-sm text-[#9C8E7C] text-center py-4">
             No comments yet
           </p>
         )}

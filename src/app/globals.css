@@ -6,8 +6,8 @@
 }
 
 :root {
-  --background: #fafafa;
-  --foreground: #0a0a0a;
+  --background: #FAF9F7;
+  --foreground: #2D2A26;
 }
 
 body {
@@ -41,21 +41,21 @@ p, span, label {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d4;
+  background: #D5CEC6;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a3a3a3;
+  background: #9C8E7C;
 }
 
 /* Dark scrollbar for dark containers */
 .dark-scrollbar::-webkit-scrollbar-thumb {
-  background: #404040;
+  background: #3D3832;
 }
 
 .dark-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #525252;
+  background: #4A4039;
 }
 
 /* Animations */
@@ -92,7 +92,7 @@ p, span, label {
 
 /* Task card drag style */
 .task-dragging {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(140, 100, 60, 0.15), 0 8px 10px -6px rgba(140, 100, 60, 0.1);
   transform: rotate(1deg);
 }
 
@@ -106,6 +106,6 @@ p, span, label {
 
 /* Selection color */
 ::selection {
-  background: #c7d2fe;
-  color: #1e1b4b;
+  background: #D4C4FB;
+  color: #2D2A26;
 }

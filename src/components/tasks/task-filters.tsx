@@ -47,7 +47,7 @@ export function TaskFilters({
             onPriorityChange('')
             onAssigneeChange('')
           }}
-          className="text-xs text-indigo-600 hover:text-indigo-800 font-medium"
+          className="text-xs text-[#6C3FEE] hover:text-[#5B35CC] font-medium"
         >
           Clear filters
         </button>

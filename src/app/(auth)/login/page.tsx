@@ -36,8 +36,8 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="bg-white rounded-xl border border-neutral-200/80 p-8 shadow-sm">
-      <h2 className="text-lg font-semibold text-[#09090b] mb-6 tracking-tight">Welcome back</h2>
+    <div className="bg-white rounded-2xl border border-[#E8E0D8] p-8 shadow-[0_4px_20px_rgba(140,100,60,0.08)]">
+      <h2 className="text-lg font-semibold text-[#2D2A26] mb-6 tracking-tight">Welcome back</h2>
 
       <form onSubmit={handleLogin} className="space-y-4">
         <Input
@@ -72,7 +72,7 @@ export default function LoginPage() {
 
       <p className="mt-6 text-center text-[13px] text-neutral-400">
         New to the team?{' '}
-        <Link href="/signup" className="text-[#09090b] hover:underline font-medium">
+        <Link href="/signup" className="text-[#2D2A26] hover:underline font-medium">
           Create an account
         </Link>
       </p>

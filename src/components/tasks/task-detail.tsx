@@ -46,20 +46,20 @@ export function TaskDetail({ task, onClose, onEdit, onDelete, profiles }: TaskDe
               </span>
             )}
           </div>
-          <h2 className="text-xl font-bold text-gray-900">{task.title}</h2>
+          <h2 className="text-xl font-bold text-[#2D2A26]">{task.title}</h2>
         </div>
 
         {/* Description */}
         {task.description && (
-          <div className="bg-neutral-50 rounded-lg p-4">
-            <p className="text-sm text-gray-700 whitespace-pre-wrap">{task.description}</p>
+          <div className="bg-[#FAF9F7] rounded-lg p-4">
+            <p className="text-sm text-[#4A4039] whitespace-pre-wrap">{task.description}</p>
           </div>
         )}
 
         {/* Metadata */}
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="text-gray-500 mb-1">Created by</p>
+            <p className="text-[#9C8E7C] mb-1">Created by</p>
             <div className="flex items-center gap-2">
               <TeamAvatar
                 emoji={task.creator.emoji}
@@ -67,11 +67,11 @@ export function TaskDetail({ task, onClose, onEdit, onDelete, profiles }: TaskDe
                 size="sm"
                 name={task.creator.full_name}
               />
-              <span className="font-medium text-gray-900">{task.creator.full_name}</span>
+              <span className="font-medium text-[#2D2A26]">{task.creator.full_name}</span>
             </div>
           </div>
           <div>
-            <p className="text-gray-500 mb-1">Assigned to</p>
+            <p className="text-[#9C8E7C] mb-1">Assigned to</p>
             {task.assignee ? (
               <div className="flex items-center gap-2">
                 <TeamAvatar
@@ -80,31 +80,31 @@ export function TaskDetail({ task, onClose, onEdit, onDelete, profiles }: TaskDe
                   size="sm"
                   name={task.assignee.full_name}
                 />
-                <span className="font-medium text-gray-900">{task.assignee.full_name}</span>
+                <span className="font-medium text-[#2D2A26]">{task.assignee.full_name}</span>
               </div>
             ) : (
-              <span className="text-gray-400 italic">Unassigned</span>
+              <span className="text-[#9C8E7C] italic">Unassigned</span>
             )}
           </div>
           <div>
-            <p className="text-gray-500 mb-1">Due Date</p>
-            <span className={overdue ? 'text-red-600 font-medium' : 'text-gray-900'}>
+            <p className="text-[#9C8E7C] mb-1">Due Date</p>
+            <span className={overdue ? 'text-red-600 font-medium' : 'text-[#2D2A26]'}>
               {task.due_date ? formatDate(task.due_date) : 'No deadline'}
             </span>
           </div>
           <div>
-            <p className="text-gray-500 mb-1">Created</p>
-            <span className="text-gray-900">{timeAgo(task.created_at)}</span>
+            <p className="text-[#9C8E7C] mb-1">Created</p>
+            <span className="text-[#2D2A26]">{timeAgo(task.created_at)}</span>
           </div>
         </div>
 
         {/* Comments */}
-        <div className="border-t border-gray-100 pt-4">
+        <div className="border-t border-[#E8E0D8]/60 pt-4">
           <CommentSection taskId={task.id} profiles={profiles} />
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3 border-t border-gray-100 pt-4">
+        <div className="flex gap-3 border-t border-[#E8E0D8]/60 pt-4">
           {canEdit && (
             <Button variant="secondary" onClick={onEdit} size="sm">
               Edit

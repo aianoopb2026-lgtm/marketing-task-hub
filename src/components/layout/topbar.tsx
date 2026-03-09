@@ -19,18 +19,18 @@ export function Topbar({ onMenuToggle }: { onMenuToggle: () => void }) {
   }
 
   return (
-    <header className="bg-white/80 backdrop-blur-sm border-b border-neutral-200/60 px-4 lg:px-6 h-14 flex items-center justify-between sticky top-0 z-30">
+    <header className="bg-[#FAF9F7]/80 backdrop-blur-sm border-b border-[#E8E0D8] px-4 lg:px-6 h-14 flex items-center justify-between sticky top-0 z-30">
       <div className="flex items-center gap-3">
         <button
           onClick={onMenuToggle}
-          className="lg:hidden p-2 rounded-lg hover:bg-neutral-50 transition-colors"
+          className="lg:hidden p-2 rounded-lg hover:bg-[#F0EBE4] transition-colors"
         >
-          <svg className="w-5 h-5 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-5 h-5 text-[#9C8E7C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
         <div className="lg:hidden flex items-center gap-2">
-          <span className="font-semibold text-[14px] text-[#09090b] tracking-tight">Marketing Task Hub</span>
+          <span className="font-semibold text-[14px] text-[#2D2A26] tracking-tight">Marketing Task Hub</span>
         </div>
       </div>
 
@@ -38,11 +38,11 @@ export function Topbar({ onMenuToggle }: { onMenuToggle: () => void }) {
         {profile && (
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="flex items-center gap-3 px-3 py-1.5 rounded-lg hover:bg-neutral-50 transition-colors"
+            className="flex items-center gap-3 px-3 py-1.5 rounded-full hover:bg-[#F0EBE4] transition-colors"
           >
             <div className="text-right hidden sm:block">
-              <p className="text-[13px] font-medium text-[#09090b]">{profile.full_name}</p>
-              <p className="text-[11px] text-neutral-400">
+              <p className="text-[13px] font-medium text-[#2D2A26]">{profile.full_name}</p>
+              <p className="text-[11px] text-[#9C8E7C]">
                 {profile.role === 'admin' ? 'Admin' : profile.title || 'Team Member'}
               </p>
             </div>
@@ -53,18 +53,18 @@ export function Topbar({ onMenuToggle }: { onMenuToggle: () => void }) {
         {showMenu && (
           <>
             <div className="fixed inset-0 z-40" onClick={() => setShowMenu(false)} />
-            <div className="absolute right-0 top-full mt-1.5 w-56 bg-white rounded-xl shadow-lg border border-neutral-200/80 py-1.5 z-50">
+            <div className="absolute right-0 top-full mt-1.5 w-56 bg-white rounded-2xl shadow-[0_8px_30px_rgba(140,100,60,0.12)] border border-[#E8E0D8] py-1.5 z-50">
               {profile && (
-                <div className="px-4 py-3 border-b border-neutral-100">
-                  <p className="text-[13px] font-medium text-[#09090b]">
+                <div className="px-4 py-3 border-b border-[#E8E0D8]/60">
+                  <p className="text-[13px] font-medium text-[#2D2A26]">
                     {profile.full_name}
                   </p>
-                  <p className="text-[12px] text-neutral-400">{profile.email}</p>
+                  <p className="text-[12px] text-[#9C8E7C]">{profile.email}</p>
                 </div>
               )}
               <button
                 onClick={handleLogout}
-                className="w-full text-left px-4 py-2.5 text-[13px] text-red-600 hover:bg-red-50 transition-colors"
+                className="w-full text-left px-4 py-2.5 text-[13px] text-[#E5484D] hover:bg-red-50 transition-colors"
               >
                 Sign out
               </button>
